@@ -23,3 +23,13 @@ test('Testando cadastro de três perguntas', () => {
   expect(perguntas[2].num_respostas).toBe(0);
   expect(perguntas[1].id_pergunta).toBe(perguntas[2].id_pergunta-1);
 });
+
+
+test('Testando cadastro de uma resposta', () => {
+  modelo.cadastrar_resposta(1, '1');
+  const respostas = modelo.get_respostas(1);
+  expect(respostas.length).toBe(1);
+  const num_respostas = modelo.get_num_respostas(1);
+  expect(num_respostas).toBe(1);
+  expect(respostas[0].texto).toBe('1')
+})
